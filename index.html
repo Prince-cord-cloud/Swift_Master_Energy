@@ -922,7 +922,7 @@
 
 /* Scroll Indicator */
 .scroll-indicator {
-    position: absolute;
+position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
@@ -1597,6 +1597,98 @@
             word-wrap: break-word !important;
             line-height: 1.6 !important;
             font-family: monospace;
+        }
+                /* ========== MOBILE HERO SECTION ADJUSTMENT ========== */
+        @media (max-width: 768px) {
+            /* Move hero content down on mobile */
+            #hero {
+                padding-top: 140px !important;
+                padding-bottom: 60px !important;
+                min-height: auto !important;
+                align-items: flex-start !important;
+            }
+            
+            .hero-content {
+                margin-top: -5px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .hero-content p {
+                font-size: 0.99rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .hero-actions {
+                gap: 0.8rem !important;
+            }
+            
+            .hero-actions a {
+                padding: 0.7rem 1.2rem !important;
+                font-size: 0.9rem !important;
+            }
+        }
+        
+        /* For very small devices */
+        @media (max-width: 480px) {
+            #hero {
+                padding-top: 160px !important;
+                padding-bottom: 40px !important;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem !important;
+            }
+        }
+
+                /* ========== SCROLL INDICATOR CENTERED ON MOBILE ========== */
+        @media (max-width: 768px) {
+            .scroll-indicator {
+                position: absolute;
+                bottom: 20px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                right: auto !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                z-index: 10;
+            }
+            
+            .scroll-indicator span {
+                font-size: 0.7rem;
+                letter-spacing: 2px;
+            }
+            
+            .scroll-indicator .mouse {
+                width: 34px;
+                height: 48px;
+                border-width: 2px;
+            }
+            
+            .scroll-indicator .mouse::before {
+                width: 5px;
+                height: 8px;
+                top: 8px;
+            }
+        #hero{
+            padding-bottom: 80px !important;
+        }
+        }
+        
+        /* For very small devices */
+        @media (max-width: 480px) {
+            .scroll-indicator {
+                bottom: 15px !important;
+            }
+            
+            .scroll-indicator .mouse {
+                width: 22px;
+                height: 34px;
+            }
         }
     </style>
 </head>
