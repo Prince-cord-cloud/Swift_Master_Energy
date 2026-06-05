@@ -1,0 +1,2873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Swift Master Energy | Best Solar Solutions</title>
+    <link rel="icon" href="assets/main-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ==========================================
+           1. CORE DESIGN SYSTEM & VARIABLES
+           ========================================== */
+        :root {
+            --primary: #FFCC00;      /* Vibrant Brand Yellow */
+            --primary-dark: #D4A300;
+            --surface-dark: #0B0F17;  /* Deep Premium Dark Surface */
+            --surface-card: #161C2A;  /* Contrast Card Color */
+            --text-light: #FFFFFF;
+            --text-muted: #94A3B8;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            font-family: var(--font-main);
+        }
+
+        html, body {
+            background-color: var(--surface-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Utility Styles */
+        .section-tag {
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
+            line-height: 1.2;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--surface-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2E374A;
+            border-radius: 4px;
+        }
+
+        /* ==========================================
+           2. NAVIGATION & HEADER
+           ========================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.25rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-smooth);
+            background: linear-gradient(to bottom, rgba(11,15,23,0.95), rgba(11,15,23,0));
+            backdrop-filter: blur(0px);
+        }
+
+        header.scrolled {
+            background: rgba(11, 15, 23, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 0.85rem 5%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: 45px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .brand-name {
+            font-weight: 800;
+            font-size: 1.3rem;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .brand-name span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            opacity: 0.8;
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .cta-btn {
+            background: var(--primary);
+            color: var(--surface-dark);
+            padding: 0.8rem 1.6rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 14px rgba(255, 204, 0, 0.3);
+            transition: var(--transition-smooth);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 204, 0, 0.5);
+            background: #FFF;
+        }
+
+        /* Re-engineered High Visibility Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1005;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary); /* Keeps yellow visibility alive over background images */
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            transform-origin: left center;
+        }
+
+        /* ==========================================
+           3. HERO SECTION
+           ========================================== */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            background: linear-gradient(135deg, rgba(11,15,23,0.95) 40%, rgba(11,15,23,0.4)), url('assets/hero-bg.jpg') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 10;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .sec-btn {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-light);
+            padding: 0.8rem 1.6rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .sec-btn:hover {
+            border-color: var(--text-light);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-badge-grid {
+            position: absolute;
+            bottom: 40px;
+            right: 5%;
+            display: grid;
+            grid-template-columns: repeat(2, 180px);
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .hero-badge {
+            background: rgba(22, 28, 42, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1.2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .hero-badge i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .hero-badge div {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================
+           4. DATA METRICS ACCELERATOR
+           ========================================== */
+        #metrics {
+            background: var(--surface-card);
+            padding: 4rem 5%;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .metrics-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .metric-card h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-card p {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================
+           5. DEPLOYED CONFIGURATIONS & SOLUTIONS
+           ========================================== */
+        #products, #overview, #why-choose-us {
+            padding: 7rem 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--surface-card);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 204, 0, 0.2);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+
+        .product-img-holder {
+            height: 240px;
+            background: #1e293b;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(11, 15, 23, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            border: 1px solid rgba(255,254,0,0.2);
+        }
+
+        .product-body {
+            padding: 1.5rem;
+        }
+
+        .advantage-card {
+            background: var(--surface-card);
+            padding: 1.8rem;
+            border-radius: 24px;
+        }
+
+        .pricing-card {
+            background: var(--surface-card);
+            border-radius: 28px;
+            padding: 2rem 1.8rem;
+        }
+
+        .product-specs {
+            background: rgba(11, 15, 23, 0.4);
+            padding: 0.85rem 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            color: #CBD5E1;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .product-specs span strong {
+            color: var(--primary);
+        }
+
+        /* ==========================================
+           PRODUCT TECHNICAL MATRIX STYLES
+           ========================================== */
+        .matrix-container {
+            margin-top: 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .matrix-block {
+            background: var(--surface-card);
+            border-radius: 24px;
+            padding: 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .matrix-block h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+            min-width: 750px;
+        }
+
+        .tech-table th {
+            background: rgba(11, 15, 23, 0.6);
+            color: var(--text-light);
+            font-weight: 700;
+            padding: 1rem 1.25rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tech-table td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            color: var(--text-muted);
+            vertical-align: middle;
+        }
+
+        .tech-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tech-table tr:hover td {
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        /* Matrix Table Embedded Image Layout Framework */
+        .table-img-wrapper {
+            width: 60px;
+            height: 45px;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #1E293B;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .table-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .model-tag {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .spec-badge {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #CBD5E1;
+        }
+
+        .request-btn {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition-smooth);
+        }
+
+        .request-btn:hover {
+            color: #FFF;
+            transform: translateX(3px);
+        }
+
+        /* ==========================================
+           6. COMPANY OVERVIEW & VIDEO INFRASTRUCTURE
+           ========================================== */
+        .overview-split {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .overview-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            aspect-ratio: 16 / 10;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay-play {
+            position: absolute;
+            inset: 0;
+            background: rgba(11, 15, 23, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .play-btn-circle {
+            width: 75px;
+            height: 75px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--surface-dark);
+            font-size: 1.5rem;
+            transition: var(--transition-smooth);
+            box-shadow: 0 0 30px rgba(255,204,0,0.4);
+        }
+
+        /* ==========================================
+           7. SYSTEM ADVANTAGES (WHY CHOOSE US)
+           ========================================== */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .advantage-card {
+            background: var(--surface-card);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.02);
+            transition: var(--transition-smooth);
+        }
+
+        .advantage-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 204, 0, 0.08);
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .advantage-icon-wrapper i {
+            color: var(--primary);
+            font-size: 1.6rem;
+        }
+
+        .advantage-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .advantage-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           8. PRICING ARCHITECTURE BLOCK
+           ========================================== */
+        #pricing {
+            padding: 7rem 5%;
+            background: linear-gradient(to bottom, var(--surface-dark), #0f1420);
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--surface-card);
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            border: 1px solid rgba(255,255,255,0.03);
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .pricing-card.premium {
+            border: 2px solid var(--primary);
+            box-shadow: 0 15px 35px rgba(255, 204, 0, 0.1);
+        }
+
+        .pricing-card.premium .popular-tag {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--surface-dark);
+            padding: 0.35rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pricing-header h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .price-point {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-point span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .pricing-features li {
+            margin-bottom: 0.85rem;
+            color: #CBD5E1;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li i {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================
+           9. DYNAMIC ANIMATIONS FRAMEWORK
+           ========================================== */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal-node {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-node.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================
+           10. APP-FEEL MOBILE ENVIRONMENT METRICS
+           ========================================== */
+        @media (max-width: 1024px) {
+            .product-grid, .advantages-grid, .pricing-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .overview-split {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            /* Hero badges remain visible on tablets */
+            .hero-badge-grid {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin: 2rem auto 0 auto;
+                width: 100%;
+                max-width: 500px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .hero-badge {
+                padding: 1rem;
+            }
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+        }
+
+                @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.open span:nth-child(1) {
+                transform: rotate(45deg) translate(4px, 4px);
+            }
+            .hamburger.open span:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            .hamburger.open span:nth-child(3) {
+                transform: rotate(-45deg) translate(4px, -5px);
+            }
+
+            /* Hero badges: visible, 2 columns, below text */
+            .hero-badge-grid {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin: 2rem auto 0 auto;
+                width: 100%;
+                max-width: 400px;
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .hero-badge {
+                padding: 0.8rem;
+            }
+
+            /* Scroll indicator: visible */
+            .scroll-indicator {
+                display: flex !important;
+                bottom: 15px;
+            }
+
+            /* Metrics: 2 columns */
+            .metrics-wrapper {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.2rem;
+            }
+
+            .metric-card h3 {
+                font-size: 2rem;
+            }
+
+            /* Product, advantages, pricing: 1 column */
+            .product-grid, .advantages-grid, .pricing-container {
+                grid-template-columns: 1fr;
+            }
+
+            .matrix-block {
+                padding: 1rem;
+            }
+
+            #hero {
+                padding-top: 100px;
+                text-align: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-actions a {
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Contact section responsive */
+            #contact-modern {
+                padding: 2rem 1.5rem !important;
+            }
+
+            #contact-modern > div > div {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                font-size: 1rem;
+                padding: 0.9rem;
+            }
+
+            /* Mobile menu panel adjustments */
+            .mobile-menu-panel {
+                padding: 1.2rem;
+            }
+
+            .mobile-nav-links a {
+                font-size: 1.1rem;
+                padding: 0.7rem;
+            }
+
+            .app-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.6);
+                backdrop-filter: blur(4px);
+                z-index: 998;
+                opacity: 0;
+                pointer-events: none;
+                transition: var(--transition-smooth);
+            }
+
+            .app-overlay.active {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+        /* Hero Background Image & Overlay */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(11,15,23,0.88) 0%, rgba(11,15,23,0.7) 50%, rgba(11,15,23,0.4) 100%);
+    z-index: -1;
+}
+
+.hero-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(255,204,0,0.08) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 1s;
+}
+
+.scroll-indicator span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+}
+
+.scroll-indicator .mouse {
+    width: 28px;
+    height: 45px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    position: relative;
+}
+
+.scroll-indicator .mouse::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 10px;
+    background: var(--primary);
+    border-radius: 2px;
+    animation: scrollWheel 1.5s infinite;
+}
+
+@keyframes scrollWheel {
+    0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    80% { opacity: 0; transform: translateX(-50%) translateY(15px); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(0); }
+}
+
+        @media (max-width: 480px) {
+            .hero-badge-grid {
+                gap: 8px;
+            }
+            .hero-badge div {
+                font-size: 0.7rem;
+            }
+            .metrics-wrapper {
+                gap: 1rem;
+            }
+            .metric-card h3 {
+                font-size: 1.6rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+/* Adjust hero positioning for existing layout */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: relative;
+    isolation: isolate;
+}
+
+
+        /* ========== REDESIGNED MOBILE MENU (SLIDE-UP WITH ICONS) ========== */
+             /* ========== FULL-SCREEN MOBILE MENU (DROPS FROM TOP, FULL HEIGHT) ========== */
+        .mobile-menu-panel {
+            position: fixed;
+            top: -100vh;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(145deg, #0F131E, #0B0F17);
+            padding: 1.5rem;
+            padding-top: calc(1.5rem + env(safe-area-inset-top, 0px));
+            padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+            z-index: 2000;
+            transition: top 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .mobile-menu-panel.active {
+            top: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0;
+        }
+
+        .close-menu {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 30px;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: 0.2s;
+            flex-shrink: 0;
+        }
+
+        .close-menu:active {
+            background: var(--primary);
+            color: #0B0F17;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .mobile-nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 1rem;
+            border-radius: 16px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .mobile-nav-links a i {
+            width: 30px;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .mobile-nav-links a:active {
+            background: rgba(255,204,0,0.2);
+        }
+
+        .mobile-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            margin: 1rem 0;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            flex-shrink: 0;
+        }
+
+        .mobile-social-icons a {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            transition: 0.2s;
+        }
+
+        .mobile-social-icons a:active {
+            color: var(--primary);
+        }
+
+        .mobile-cta {
+            margin-top: 0.5rem;
+            margin-bottom: env(safe-area-inset-bottom, 1rem);
+            flex-shrink: 0;
+        }
+
+        .mobile-cta .cta-btn {
+            width: 100%;
+            justify-content: center;
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Hide desktop nav on mobile, show hamburger */
+        @media (max-width: 768px) {
+            .desktop-nav, .header-cta {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* On desktop, hide mobile panel elements */
+        @media (min-width: 769px) {
+            .mobile-menu-panel {
+                display: none;
+            }
+        }
+
+                        /* ========== MODERN VIDEO PLAYER ========== */
+        .video-player-modern {
+            position: relative;
+            width: 100%;
+            border-radius: 28px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            aspect-ratio: 16 / 10;
+        }
+
+        .video-player-modern video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            padding: 0.8rem 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(8px);
+            z-index: 10;
+        }
+
+        .video-player-modern:hover .video-controls,
+        .video-player-modern:focus-within .video-controls,
+        .video-controls.visible {
+            opacity: 1;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 5px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: var(--primary);
+            border-radius: 10px;
+            transition: width 0.1s linear;
+        }
+
+        .controls-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .ctrl-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            transition: 0.2s;
+        }
+
+        .ctrl-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+
+        .volume-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .volume-slider {
+            width: 70px;
+            height: 4px;
+            -webkit-appearance: none;
+            background: rgba(255,255,255,0.3);
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .time-display {
+            font-size: 0.8rem;
+            font-family: monospace;
+            background: rgba(0,0,0,0.6);
+            padding: 4px 8px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            margin-left: auto;
+        }
+
+        .seek-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(12px);
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1rem;
+            color: var(--primary);
+            pointer-events: none;
+            z-index: 20;
+            opacity: 0;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .controls-row {
+                gap: 0.8rem;
+            }
+            .volume-slider {
+                width: 50px;
+            }
+            .ctrl-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 0.9rem;
+            }
+            .time-display {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* ========== REDUCE CONTACT FORM PADDING & BORDER RADIUS ========== */
+        #contact-modern .contact-form,
+        #contactFormDirect {
+            padding: 1.2rem !important;
+            border-radius: 15px !important;
+        }
+
+        #contactFormDirect input,
+        #contactFormDirect textarea {
+            padding: 0.7rem 1rem !important;
+            border-radius: 10px !important;
+            margin-bottom: 0.8rem !important;
+        }
+
+        #contactFormDirect .cta-btn {
+            padding: 0.7rem 1rem !important;
+            font-size: 0.9rem !important;
+        }
+
+        /* Also reduce the left info icons padding */
+        #contact-modern > div > div > div:first-child > div {
+            margin-bottom: 1rem !important;
+        }
+        .contact-icon {
+            width: 42px !important;
+            height: 42px !important;
+        }
+
+                /* Ensure input fields always have dark background and white text */
+        #contactFormDirect input,
+        #contactFormDirect textarea {
+            background-color: rgba(0, 0, 0, 0.4) !important;
+            color: white !important;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        #contactFormDirect input:focus,
+        #contactFormDirect textarea:focus {
+            background-color: rgba(0, 0, 0, 0.6) !important;
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        /* Prevent white background from browser autofill */
+        #contactFormDirect input:-webkit-autofill,
+        #contactFormDirect input:-webkit-autofill:hover,
+        #contactFormDirect input:-webkit-autofill:focus,
+        #contactFormDirect input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.6) inset !important;
+            -webkit-text-fill-color: white !important;
+            background-color: rgba(0, 0, 0, 0.6) !important;
+        }
+
+                /* ========== DROPDOWN MENU FOR SOLUTIONS ========== */
+        .nav-item-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--surface-card);
+            min-width: 260px;
+            border-radius: 16px;
+            padding: 0.8rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            border: 1px solid rgba(255,204,0,0.2);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-item-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.8rem 1.2rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            border-bottom: none !important;
+        }
+        
+        .dropdown-menu a i {
+            width: 24px;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        
+        .dropdown-menu a:hover {
+            background: rgba(255,204,0,0.1);
+            color: var(--primary);
+            padding-left: 1.5rem;
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.08);
+            margin: 0.5rem 0;
+        }
+        
+        /* Mobile dropdown adjustments */
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                background: transparent;
+                box-shadow: none;
+                padding-left: 2rem;
+                margin-top: 0.5rem;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                display: none;
+                border: none;
+            }
+            
+            .nav-item-dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .dropdown-menu a {
+                padding: 0.6rem 1rem;
+                font-size: 1rem;
+            }
+            
+            .dropdown-menu a:hover {
+                background: rgba(255,204,0,0.1);
+                padding-left: 1.2rem;
+            }
+        }
+                /* ========== FIX CONTACT FORM OVERFLOW ON MOBILE ========== */
+        
+        /* Global mobile fix - prevent any overflow */
+        @media (max-width: 768px) {
+            /* Prevent horizontal scroll on body */
+            body {
+                overflow-x: hidden !important;
+                width: 100% !important;
+            }
+            
+            /* Fix contact section width */
+            #contact-modern {
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+                padding: 1.5rem 1rem !important;
+                box-sizing: border-box !important;
+            }
+            
+            /* Fix contact grid container */
+            #contact-modern > div {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+            }
+            
+            /* Force single column and prevent overflow */
+            #contact-modern > div > div {
+                display: flex !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                gap: 1.5rem !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-sizing: border-box !important;
+            }
+            
+            /* Fix contact info cards - make them full width */
+            #contact-modern > div > div > div:first-child {
+                width: 100% !important;
+                max-width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 0.8rem !important;
+            }
+            
+            #contact-modern > div > div > div:first-child > div {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin-bottom: 0 !important;
+                padding: 0.8rem !important;
+                box-sizing: border-box !important;
+            }
+            
+            /* Fix contact form container */
+            #contact-modern > div > div > div:last-child {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                box-sizing: border-box !important;
+            }
+            
+            /* Fix the form itself */
+            .contact-form,
+            #contactFormDirect {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 1rem !important;
+                margin: 0 !important;
+                box-sizing: border-box !important;
+                overflow-x: hidden !important;
+            }
+            
+            /* Fix all inputs and textareas */
+            #contactFormDirect input,
+            #contactFormDirect textarea {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0.8rem !important;
+                margin: 0 0 0.8rem 0 !important;
+                font-size: 0.95rem !important;
+                box-sizing: border-box !important;
+                display: block !important;
+            }
+            
+            /* Fix the send message button */
+            #contactFormDirect button,
+            #contactFormDirect .cta-btn {
+                width: 100% !important;
+                padding: 0.8rem !important;
+                margin-top: 0.5rem !important;
+                box-sizing: border-box !important;
+                white-space: normal !important;
+                word-break: keep-all !important;
+            }
+            
+            /* Fix inline popup */
+            #inlinePlatformPopup {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 1rem !important;
+                margin-top: 1rem !important;
+                box-sizing: border-box !important;
+            }
+            
+            /* Fix popup buttons */
+            #inlinePlatformPopup .platform-buttons {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 0.8rem !important;
+                width: 100% !important;
+            }
+            
+            #inlinePlatformPopup .platform-buttons button {
+                width: 100% !important;
+                padding: 0.7rem !important;
+                box-sizing: border-box !important;
+            }
+        }
+        
+        /* For very small devices */
+        @media (max-width: 480px) {
+            #contact-modern {
+                padding: 1rem 0.8rem !important;
+            }
+            
+            #contactFormDirect input,
+            #contactFormDirect textarea {
+                padding: 0.7rem !important;
+                font-size: 0.9rem !important;
+            }
+            
+            .contact-icon {
+                width: 35px !important;
+                height: 35px !important;
+                flex-shrink: 0 !important;
+            }
+            
+            .contact-info-item {
+                gap: 0.8rem !important;
+            }
+            
+            .contact-info-item h4 {
+                font-size: 0.9rem !important;
+            }
+            
+            .contact-info-item p {
+                font-size: 0.8rem !important;
+            }
+        }
+        
+        /* Ensure all elements respect box-sizing */
+        #contact-modern *,
+        #contactFormDirect * {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+                /* Preserve line breaks in textarea */
+        #contactMessage {
+            white-space: pre-wrap !important;
+            word-wrap: break-word !important;
+            line-height: 1.6 !important;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-overlay" id="appOverlay"></div>
+
+        <header id="appHeader">
+        <!-- Left side: logo + brand (visible on all devices) -->
+        <div class="logo-container">
+            <img src="assets/main-logo.png" alt="Swift Master Energy Logo" class="logo-img">
+            <div class="brand-name">
+                Swift Master
+                <span>Energy</span>
+            </div>
+        </div>
+        
+        <!-- Desktop navigation (hidden on mobile, but kept for layout) -->
+ <nav class="nav-links desktop-nav" id="desktopNav">
+            <a href="#hero">Home</a>
+            <div class="nav-item-dropdown">
+                <a href="#products">Solutions <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#battery-matrix" id="batteryMatrixLink">
+                        <i class="fa-solid fa-battery-full"></i> Solar Battery Wholesale Matrix
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#inverter-matrix" id="inverterMatrixLink">
+                        <i class="fa-solid fa-bolt"></i> Solar Inverter Wholesale Matrix
+                    </a>
+                </div>
+            </div>
+            <a href="#overview">Overview</a>
+            <a href="#why-choose-us">Advantages</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact-modern">Contact</a>
+        </nav>
+
+        <!-- Desktop CTA button -->
+        <div class="header-cta">
+            <a href="#pricing" class="cta-btn">Get Free Quote <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Hamburger button (mobile only) -->
+        <button class="hamburger" id="menuToggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Mobile slide‑up menu (hidden by default) -->
+        <div class="mobile-menu-panel" id="mobileMenuPanel">
+            <div class="mobile-menu-header">
+                <div class="logo-container">
+                    <img src="assets/main-logo.png" alt="Swift Master Energy Logo" class="logo-img">
+                    <div class="brand-name">
+                        Swift Master
+                        <span>Energy</span>
+                    </div>
+                </div>
+                <button class="close-menu" id="closeMenuBtn"><i class="fa-solid fa-times"></i></button>
+            </div>
+                        <nav class="mobile-nav-links">
+                <a href="#hero"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#products"><i class="fa-solid fa-solar-panel"></i> Solutions</a>
+                <div style="padding-left: 2rem; display: flex; flex-direction: column; gap: 0.5rem; margin-top: -0.5rem; margin-bottom: 0.5rem;">
+                    <a href="#battery-matrix" style="font-size: 0.9rem; padding: 0.4rem 1rem;"><i class="fa-solid fa-battery-full"></i> Battery Matrix</a>
+                    <a href="#inverter-matrix" style="font-size: 0.9rem; padding: 0.4rem 1rem;"><i class="fa-solid fa-bolt"></i> Inverter Matrix</a>
+                </div>
+                <a href="#overview"><i class="fa-solid fa-video"></i> Overview</a>
+                <a href="#why-choose-us"><i class="fa-solid fa-medal"></i> Advantages</a>
+                <a href="#pricing"><i class="fa-solid fa-tag"></i> Pricing</a>
+                <a href="#contact-modern"><i class="fa-regular fa-envelope"></i> Contact</a>
+            </nav>
+            <div class="mobile-social-icons">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+            <div class="mobile-cta">
+                <a href="#pricing" class="cta-btn">Get Free Quote <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </header>
+
+<section id="hero">
+    <!-- Background Image -->
+    <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format" alt="Solar panels on modern house roof at sunset">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-glow"></div>
+
+    <div class="hero-content">
+        <span class="section-tag" style="animation: fadeInUp 0.8s forwards 0.1s; opacity:0;">Clean Energy, Brighter Future</span>
+        <h1>Power Your Home.<br>Save The Planet.<br><span>Go Solar Today.</span></h1>
+        <p>Powering a sustainable future through innovative solar energy solutions. Expert solar system development, energy storage, and industrial deployments customized around efficiency and structural reliability.</p>
+        <div class="hero-actions">
+            <a href="#pricing" class="cta-btn">Get A Free Quote <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#products" class="sec-btn">Our Solutions</a>
+        </div>
+    </div>
+
+    <div class="hero-badge-grid">
+        <div class="hero-badge">
+            <i class="fa-solid fa-solar-panel"></i>
+            <div>Expert Installation</div>
+        </div>
+        <div class="hero-badge">
+            <i class="fa-solid fa-battery-three-quarters"></i>
+            <div>Premium Storage</div>
+        </div>
+        <div class="hero-badge">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>25+ Years Warranty</div>
+        </div>
+        <div class="hero-badge">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <div>Full Support</div>
+        </div>
+    </div>
+
+    <div class="scroll-indicator">
+        <span>SCROLL</span>
+        <div class="mouse"></div>
+    </div>
+</section>
+
+    <section id="metrics">
+        <div class="metrics-wrapper">
+            <div class="metric-card">
+                <h3><span class="counter" data-target="985">0</span>+</h3>
+                <p>Global Installed MW</p>
+            </div>
+            <div class="metric-card">
+                <h3><span class="counter" data-target="8000">0</span>+</h3>
+                <p>Battery Cycle Life</p>
+            </div>
+            <div class="metric-card">
+                <h3><span class="counter" data-target="25">0</span>+</h3>
+                <p>Years Product Warranty</p>
+            </div>
+            <div class="metric-card">
+                <h3><span class="counter" data-target="100">0</span>%</h3>
+                <p>Quality Inspected</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="reveal-node">
+        <span class="section-tag">Our Products & Solutions</span>
+        <h2 class="section-title">High Efficiency <span>Solar Ecosystems</span></h2>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img-holder">
+                    <span class="product-badge">Premium ESS</span>
+                    <img src="assets/product-battery.jpg" alt="Solar Lithium Batteries">
+                </div>
+                <div class="product-body">
+                    <h4>Solar Lithium Batteries</h4>
+                    <p>High capacity deep-cycle cells engineered for safe residential backup storage and extended long-term cycle frameworks.</p>
+                    <div class="product-specs">
+                        <span>Rating: <strong>5 - 1000 kWh</strong></span>
+                        <span>Cycles: <strong>&gt;8000 Life</strong></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-holder">
+                    <span class="product-badge">MPPT Core</span>
+                    <img src="assets/product-inverter.jpg" alt="Solar Inverters">
+                </div>
+                <div class="product-body">
+                    <h4>Smart Solar Inverters</h4>
+                    <p>Next-generation pure sine-wave inverters integrated with intelligent high voltage tracking arrays.</p>
+                    <div class="product-specs">
+                        <span>Power: <strong>3.5 - 500 kW</strong></span>
+                        <span>Tracking: <strong>Dual MPPT</strong></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-holder">
+                    <span class="product-badge">PV Module</span>
+                    <img src="assets/product-panel.jpg" alt="Solar Panels">
+                </div>
+                <div class="product-body">
+                    <h4>Solar Panels (PV Modules)</h4>
+                    <p>Ultra-premium Monocrystalline module profiles delivering enhanced surface capture efficiency under sub-optimal ambient light.</p>
+                    <div class="product-specs">
+                        <span>Efficiency: <strong>Up to 22%</strong></span>
+                        <span>Cell Class: <strong>Tier 1 Mono</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="matrix-container">
+    
+    <!--  SOLAR BATTERY WHOLESALE MATRIX (NO IMAGES)   -->
+      
+        <div class="matrix-block" id="battery-matrix">
+        <h3><i class="fa-solid fa-battery-full"></i> Solar Battery Wholesale Matrix</h3>
+        <div class="table-responsive">
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Rating</th>
+                        <th>Key Specs</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="model-tag">WHC-P-51.2V100AH</td>
+                        <td><span class="spec-badge">5 kWh</span></td>
+                        <td>Cycle Life: &gt;8000 cycles</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-P-51.2V200AH</td>
+                        <td><span class="spec-badge">10 kWh</span></td>
+                        <td>Cycle Life: &gt;8000 cycles</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-P-51.2V300AH</td>
+                        <td><span class="spec-badge">15 kWh</span></td>
+                        <td>Cycle Life: &gt;8000 cycles</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-30KWH</td>
+                        <td><span class="spec-badge">30 kWh</span></td>
+                        <td>Cycle Life: &gt;8000 cycles</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-61KWH</td>
+                        <td><span class="spec-badge">61 kWh</span></td>
+                        <td>String configuration: 1P192S</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-100KWH</td>
+                        <td><span class="spec-badge">100 kWh</span></td>
+                        <td>String configuration: 1P112S</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-215KWH</td>
+                        <td><span class="spec-badge">215 kWh</span></td>
+                        <td>String configuration: 1P240S</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-500KWH</td>
+                        <td><span class="spec-badge">500 kWh</span></td>
+                        <td>Industrial Energy Storage System</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-1MWH</td>
+                        <td><span class="spec-badge">1000 kWh</span></td>
+                        <td>Containerized Energy Storage System</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--   SOLAR INVERTER WHOLESALE MATRIX  -->
+    <div class="matrix-block" id="inverter-matrix">
+        <h3><i class="fa-solid fa-bolt"></i> Solar Inverter Wholesale Matrix</h3>
+        <div class="table-responsive">
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Power</th>
+                        <th>Key Specs</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="model-tag">WHC-3.5KW</td>
+                        <td><span class="spec-badge">3.5 kW</span></td>
+                        <td>100A MPPT | 30–500VDC</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-6.2KW</td>
+                        <td><span class="spec-badge">6.2 kW</span></td>
+                        <td>120A MPPT | 60–500VDC</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-11KW</td>
+                        <td><span class="spec-badge">11 kW</span></td>
+                        <td>Dual MPPT | Built-in power: 66 kW</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-30KW</td>
+                        <td><span class="spec-badge">30 kW</span></td>
+                        <td>Max PV input: 60 kW</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-50KW</td>
+                        <td><span class="spec-badge">50 kW</span></td>
+                        <td>Max PV input: 100 kW</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-100KW</td>
+                        <td><span class="spec-badge">100 kW</span></td>
+                        <td>Max PV input: 200 kW (4×50 kW)</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="model-tag">WHC-500KW</td>
+                        <td><span class="spec-badge">500 kW</span></td>
+                        <td>Max PV input: 500 kW (10×50 kW)</td>
+                        <td><a href="#pricing" class="request-btn">Send request <i class="fa-solid fa-chevron-right"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- OVERVIEW SECTION (VIDEO + TEXT)  -->
+<section id="overview" class="reveal-node" style="background: rgba(255,255,255,0.01); border-radius: 40px; margin-top: 4rem; margin-bottom: 4rem;">
+    <div class="overview-split">
+        <div class="overview-text">
+            <span class="section-tag">Company Overview</span>
+            <h2 class="section-title">End-to-End Capabilities, <span>Global Scale</span></h2>
+            <p>We deliver comprehensive, end-to-end renewable energy solutions, offering full-chain capabilities that span from product research and development to large-scale manufacturing and deployment.</p>
+            <p>With a strong focus on innovation, quality, and reliability, we provide high-performance solar inverters, lithium battery storage systems, photovoltaic (PV) modules, and integrated solutions.</p>
+        </div>
+        <div class="video-container-box">
+            <div class="video-player-modern">
+                <video id="promoVideo" preload="metadata" playsinline>
+                    <source src="assets/promo-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-controls" id="videoControls">
+                    <div class="progress-container" id="progressBar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="controls-row">
+                        <button class="ctrl-btn" id="playPauseBtn"><i class="fa-solid fa-play"></i></button>
+                        <div class="volume-wrapper">
+                            <button class="ctrl-btn" id="muteBtn"><i class="fa-solid fa-volume-up"></i></button>
+                            <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7">
+                        </div>
+                        <span class="time-display" id="timeDisplay">0:00 / 0:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="why-choose-us" class="reveal-node">
+        <div style="text-align: center;">
+            <span class="section-tag">Why Choose Us</span>
+            <h2 class="section-title">Engineered For <span>Reliability</span></h2>
+        </div>
+
+        <div class="advantages-grid">
+            <div class="advantage-card">
+                <div class="advantage-icon-wrapper"><i class="fa-solid fa-microchip"></i></div>
+                <h4>Advanced R&D Array</h4>
+                <p>Continuous evolution in performance safety controls overseen by international engineering groups.</p>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-icon-wrapper"><i class="fa-solid fa-industry"></i></div>
+                <h4>End-to-End Control</h4>
+                <p>In-house manufacturing systems ensuring component integrity at every step of fabrication.</p>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-icon-wrapper"><i class="fa-solid fa-chart-line"></i></div>
+                <h4>High Output Efficiency</h4>
+                <p>Maximized conversion architectures engineered to yield optimal energy collection per square meter.</p>
+            </div>
+        </div>
+    </section>
+
+            <section id="pricing" class="reveal-node">
+        <div style="text-align: center;">
+            <span class="section-tag">Pricing Framework</span>
+            <h2 class="section-title">Simple. Transparent. <span>Get a Quote</span></h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem auto;">Contact our team for a customized price based on your energy needs. No hidden fees.</p>
+        </div>
+
+        <div class="pricing-container">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h4>Residential Solar ESS</h4>
+                    <div class="price-point" style="font-size: 1.8rem;">3.5kW <span>Starter System</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-circle-check"></i> 3.5kW Pure Inverter</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 5kWh Lithium Iron Battery</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Monocrystalline PV Arrays</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Basic Smart Controller App</li>
+                </ul>
+                <button class="cta-btn request-price-btn" style="width: 100%; justify-content: center;">Request Price →</button>
+            </div>
+            <div class="pricing-card premium">
+                <div class="popular-tag">Most Demanded</div>
+                <div class="pricing-header">
+                    <h4>High-Yield Residential</h4>
+                    <div class="price-point" style="font-size: 1.8rem;">6.2kW <span>Complete Backup</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-circle-check"></i> 6.2kW High Voltage Inverter</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 10kWh Deep Cycle Bank</li>
+                    <li><i class="fa-solid fa-circle-check"></i> High Density PV Module Sets</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 24/7 Priority Grid Fail Monitor</li>
+                </ul>
+                <button class="cta-btn request-price-btn" style="width: 100%; justify-content: center;">Request Price →</button>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h4>Commercial Matrix</h4>
+                    <div class="price-point" style="font-size: 1.8rem;">C&I <span>Custom Solution</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-circle-check"></i> Multi-Cluster Inverter Layouts</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Containerized ESS Storage</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Full Grid Integration Testing</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Dedicated SLA Support Array</li>
+                </ul>
+                <button class="cta-btn request-price-btn" style="width: 100%; justify-content: center;">Request Consultation →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION  ========== -->
+    <section id="contact-modern" class="reveal-node" style="padding: 5rem 5%; background: linear-gradient(145deg, #0B0F17, #0F1422); border-top: 1px solid rgba(255,204,0,0.1);">
+        <div style="max-width: 1300px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's discuss your <span>solar journey</span></h2>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem;">
+                <!-- Left: contact info -->
+                <div>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem; align-items: center;">
+                        <div style="width: 50px; height: 50px; background: rgba(255,204,0,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-envelope" style="color: var(--primary); font-size: 1.3rem;"></i></div>
+                        <div><h4 style="font-weight: 700;">Email</h4><p style="color: var(--text-muted);">info@bestswiftservices.com</p></div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem; align-items: center;">
+                        <div style="width: 50px; height: 50px; background: rgba(255,204,0,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center;"><i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 1.3rem;"></i></div>
+                        <div><h4 style="font-weight: 700;">WhatsApp</h4><p style="color: var(--text-muted);">+234 800 987 6543</p></div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <div style="width: 50px; height: 50px; background: rgba(255,204,0,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-clock" style="color: var(--primary); font-size: 1.3rem;"></i></div>
+                        <div><h4 style="font-weight: 700;">24/7 Support</h4><p style="color: var(--text-muted);">Global assistance ready</p></div>
+                    </div>
+                </div>
+                <!-- Right contact form and inline popup -->
+                <div>
+                    <form id="contactFormDirect" style="background: var(--surface-card); padding: 2rem; border-radius: 28px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="margin-bottom: 1.2rem;">
+                            <input type="text" id="contactName" placeholder="Full Name *" required style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 1rem; color: white;">
+                        </div>
+                        <div style="margin-bottom: 1.2rem;">
+                            <input type="email" id="contactEmail" placeholder="Email Address *" required style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 1rem; color: white;">
+                        </div>
+                        <div style="margin-bottom: 1.2rem;">
+                            <input type="tel" id="contactPhone" placeholder="Phone Number" style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 1rem; color: white;">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <textarea id="contactMessage" rows="3" placeholder="Your message / product interest..." style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 1rem; color: white;"></textarea>
+                        </div>
+                        <button type="submit" class="cta-btn" style="width: 100%; justify-content: center;">Send Message <i class="fa-regular fa-paper-plane"></i></button>
+                    </form>
+                    
+                                        <!-- dont touch -->
+                    <div id="inlinePlatformPopup" style="display: none; margin-top: 1.5rem; background: linear-gradient(145deg, var(--surface-card), #1A1F2E); border-radius: 32px; padding: 0; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,204,0,0.15);">
+                        <!-- top accent bar -->
+                        <div style="height: 4px; background: linear-gradient(90deg, var(--primary), #FF8C00, var(--primary)); background-size: 200% 100%; animation: gradientShift 2s ease infinite;"></div>
+                        
+                        <div style="padding: 2rem 1.8rem; text-align: center;">
+                            <div style="width: 70px; height: 70px; background: rgba(255,204,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem auto; box-shadow: 0 0 25px rgba(255,204,0,0.2);">
+                                <i class="fa-regular fa-circle-check" style="font-size: 2.2rem; color: var(--primary);"></i>
+                            </div>
+                            
+                            <h4 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; background: linear-gradient(135deg, #fff, var(--primary)); background-clip: text; -webkit-background-clip: text; color: transparent; text-align: center;">Ready to Connect</h4>
+                            
+                            <!--  description -->
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.25rem; text-align: center;">Your inquiry has been prepared</p>
+                            <p style="color: rgba(255,255,255,0.45); font-size: 0.75rem; margin-bottom: 1.5rem; text-align: center;">Choose how you'd like to proceed</p>
+                            
+                            <!--  platform buttons -->
+                            <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 1.2rem;">
+                                <button id="whatsappChoiceInline" style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; padding: 0.8rem 1.6rem; border-radius: 60px; font-weight: 700; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-size: 0.95rem; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(37,211,102,0.3);">
+                                    <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp
+                                </button>
+                                <button id="emailChoiceInline" style="background: linear-gradient(135deg, #3b82f6, #1e40af); color: white; padding: 0.8rem 1.6rem; border-radius: 60px; font-weight: 700; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-size: 0.95rem; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(59,130,246,0.3);">
+                                    <i class="fa-regular fa-envelope" style="font-size: 1.2rem;"></i> Email
+                                </button>
+                            </div>
+                            
+                            <!--  cancel button -->
+                            <button id="closeInlinePopup" style="background: transparent; border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted); margin-top: 0.5rem; padding: 0.6rem 1.4rem; border-radius: 40px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-left: auto; margin-right: auto;">
+                                <i class="fa-solid fa-times" style="font-size: 0.7rem;"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+         <!-- This is the Footer -->
+    <footer style="background: #06090f; border-top: 1px solid rgba(255,204,0,0.1); padding: 3rem 5% 2rem;">
+        <div style="max-width: 1300px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2.5rem;">
+                <div>
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Swift Master Energy</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Premium solar solutions for home, business, and industry.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem;">Quick Links</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="#hero" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Home</a></li>
+                        <li><a href="#products" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Solutions</a></li>
+                        <li><a href="#pricing" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Pricing</a></li>
+                        <li><a href="#contact-modern" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem;">Legal</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="#" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Privacy Policy</a></li>
+                        <li><a href="#" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Terms of Service</a></li>
+                        <li><a href="#" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Warranty Info</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem;">Follow Us</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#"><i class="fa-brands fa-linkedin" style="color: var(--text-muted); font-size: 1.2rem;"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter" style="color: var(--text-muted); font-size: 1.2rem;"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram" style="color: var(--text-muted); font-size: 1.2rem;"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook" style="color: var(--text-muted); font-size: 1.2rem;"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                <p style="color: #4B5563; font-size: 0.75rem;">© 2025 Swift Master Energy — Empowering a sustainable tomorrow.</p>
+            </div>
+        </div>
+    </footer>
+
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // ========== MOBILE MENU ==========
+            const menuToggle = document.getElementById('menuToggle');
+            const mobilePanel = document.getElementById('mobileMenuPanel');
+            const closeMenuBtn = document.getElementById('closeMenuBtn');
+            const appOverlay = document.getElementById('appOverlay');
+
+            function openMobileMenu() {
+                mobilePanel.classList.add('active');
+                if (appOverlay) appOverlay.classList.add('active');
+                menuToggle.classList.add('open');
+            }
+
+            function closeMobileMenu() {
+                mobilePanel.classList.remove('active');
+                if (appOverlay) appOverlay.classList.remove('active');
+                menuToggle.classList.remove('open');
+            }
+
+            if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMobileMenu);
+            if (appOverlay) appOverlay.addEventListener('click', closeMobileMenu);
+
+            document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            // ========== HEADER SCROLL EFFECT ==========
+            const header = document.getElementById('appHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // ========== REVEAL ANIMATIONS (FALLBACK INCLUDED) ==========
+            const nodes = document.querySelectorAll('.reveal-node');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            nodes.forEach(node => revealObserver.observe(node));
+
+            // Fallback: force all reveal nodes visible after 2 seconds
+            setTimeout(() => {
+                document.querySelectorAll('.reveal-node').forEach(node => {
+                    if (!node.classList.contains('visible')) {
+                        node.classList.add('visible');
+                    }
+                });
+            }, 2000);
+
+            // ========== COUNTERS ==========
+            const counters = document.querySelectorAll('.counter');
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const targetVal = parseInt(target.getAttribute('data-target'));
+                        let currentVal = 0;
+                        const timer = setInterval(() => {
+                            currentVal += Math.ceil(targetVal / 100);
+                            if (currentVal >= targetVal) {
+                                target.innerText = targetVal;
+                                clearInterval(timer);
+                            } else {
+                                target.innerText = currentVal;
+                            }
+                        }, 20);
+                        counterObserver.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(counter => counterObserver.observe(counter));
+
+            // ========== ENHANCED VIDEO PLAYER ==========
+            const video = document.getElementById('promoVideo');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const progressContainer = document.getElementById('progressBar');
+            const progressFill = document.getElementById('progressFill');
+            const muteBtn = document.getElementById('muteBtn');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const timeDisplay = document.getElementById('timeDisplay');
+            const videoControls = document.getElementById('videoControls');
+            
+            let controlsTimeout;
+            function showControls() {
+                if (!videoControls) return;
+                videoControls.classList.add('visible');
+                clearTimeout(controlsTimeout);
+                controlsTimeout = setTimeout(() => videoControls.classList.remove('visible'), 2500);
+            }
+            
+            if (video) {
+                video.addEventListener('mousemove', showControls);
+                video.addEventListener('touchstart', showControls);
+                
+                function togglePlay() {
+                    if (video.paused) video.play();
+                    else video.pause();
+                    showControls();
+                }
+                
+                if (playPauseBtn) {
+                    playPauseBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
+                }
+                video.addEventListener('click', togglePlay);
+                video.addEventListener('play', () => {
+                    if (playPauseBtn) playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                });
+                video.addEventListener('pause', () => {
+                    if (playPauseBtn) playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+                });
+                
+                video.addEventListener('timeupdate', () => {
+                    if (progressFill && video.duration) {
+                        const percent = (video.currentTime / video.duration) * 100;
+                        progressFill.style.width = percent + '%';
+                        const format = (t) => {
+                            if (isNaN(t)) return '0:00';
+                            let m = Math.floor(t / 60);
+                            let s = Math.floor(t % 60);
+                            return `${m}:${s < 10 ? '0'+s : s}`;
+                        };
+                        if (timeDisplay) {
+                            timeDisplay.innerText = `${format(video.currentTime)} / ${format(video.duration)}`;
+                        }
+                    }
+                });
+                
+                if (progressContainer) {
+                    progressContainer.addEventListener('click', (e) => {
+                        const rect = progressContainer.getBoundingClientRect();
+                        const clickX = e.clientX - rect.left;
+                        const width = rect.width;
+                        const seekTime = (clickX / width) * video.duration;
+                        video.currentTime = seekTime;
+                        showControls();
+                    });
+                }
+                
+                function updateMuteIcon() {
+                    if (!muteBtn || !volumeSlider) return;
+                    if (video.muted || video.volume === 0) {
+                        muteBtn.innerHTML = '<i class="fa-solid fa-volume-mute"></i>';
+                    } else {
+                        muteBtn.innerHTML = '<i class="fa-solid fa-volume-up"></i>';
+                    }
+                    volumeSlider.value = video.muted ? 0 : video.volume;
+                }
+                
+                if (muteBtn) {
+                    muteBtn.addEventListener('click', () => {
+                        video.muted = !video.muted;
+                        updateMuteIcon();
+                        showControls();
+                    });
+                }
+                
+                if (volumeSlider) {
+                    volumeSlider.addEventListener('input', (e) => {
+                        video.volume = parseFloat(e.target.value);
+                        video.muted = false;
+                        updateMuteIcon();
+                        showControls();
+                    });
+                }
+                video.addEventListener('volumechange', updateMuteIcon);
+                
+                video.volume = 0.7;
+                if (volumeSlider) volumeSlider.value = 0.7;
+                
+                video.addEventListener('ended', () => {
+                    video.currentTime = 0;
+                    video.play();
+                });
+                
+                let lastTap = 0;
+                video.addEventListener('touchstart', (e) => {
+                    const now = Date.now();
+                    if (now - lastTap < 300) {
+                        e.preventDefault();
+                        const touchX = e.touches[0].clientX;
+                        const videoWidth = video.clientWidth;
+                        const msg = document.createElement('div');
+                        msg.className = 'seek-message';
+                        video.parentElement.appendChild(msg);
+                        if (touchX < videoWidth / 2) {
+                            video.currentTime = Math.max(0, video.currentTime - 10);
+                            msg.innerText = '-10 sec';
+                        } else {
+                            video.currentTime = Math.min(video.duration, video.currentTime + 10);
+                            msg.innerText = '+10 sec';
+                        }
+                        msg.style.opacity = '1';
+                        setTimeout(() => { msg.style.opacity = '0'; setTimeout(() => msg.remove(), 500); }, 800);
+                    }
+                    lastTap = now;
+                });
+                
+                video.addEventListener('dblclick', (e) => {
+                    const rect = video.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const msg = document.createElement('div');
+                    msg.className = 'seek-message';
+                    video.parentElement.appendChild(msg);
+                    if (x < rect.width / 2) {
+                        video.currentTime = Math.max(0, video.currentTime - 10);
+                        msg.innerText = '-10 sec';
+                    } else {
+                        video.currentTime = Math.min(video.duration, video.currentTime + 10);
+                        msg.innerText = '+10 sec';
+                    }
+                    msg.style.opacity = '1';
+                    setTimeout(() => { msg.style.opacity = '0'; setTimeout(() => msg.remove(), 500); }, 800);
+                });
+                
+                const videoObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            video.play().catch(e => console.log('Autoplay prevented:', e));
+                        } else {
+                            video.pause();
+                        }
+                    });
+                }, { threshold: 0.5 });
+                videoObserver.observe(video);
+            }
+
+            // ========== ACTIVE NAV HIGHLIGHT (WITH MATRIX DETECTION) ==========
+            // Get all section-like elements (including matrix divs)
+            const sectionElements = Array.from(document.querySelectorAll('section[id], #battery-matrix, #inverter-matrix'));
+            const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav-links a');
+            
+            // Map which sections should activate which nav links
+            const sectionToNavMap = [
+                { sections: ['hero'], navId: 'hero' },
+                { sections: ['metrics', 'products'], navId: 'products' },
+                { sections: ['battery-matrix', 'inverter-matrix'], navId: 'products' }, // Matrix sections also activate Solutions
+                { sections: ['overview'], navId: 'overview' },
+                { sections: ['why-choose-us'], navId: 'why-choose-us' },
+                { sections: ['pricing'], navId: 'pricing' },
+                { sections: ['contact-modern'], navId: 'contact-modern' }
+            ];
+            
+            function setActiveNavSection(sectionId) {
+                // Determine which nav link should be active based on the section
+                let activeNavId = sectionId;
+                
+                // Check if this section maps to a different nav link
+                for (const mapping of sectionToNavMap) {
+                    if (mapping.sections.includes(sectionId)) {
+                        activeNavId = mapping.navId;
+                        break;
+                    }
+                }
+                
+                // Update all navigation links
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === `#${activeNavId}`) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+            
+            function updateActiveSection() {
+                const viewportCenter = window.innerHeight / 2;
+                let bestSectionId = sectionElements[0]?.id || '';
+                let bestDistance = Infinity;
+
+                sectionElements.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const sectionCenter = rect.top + rect.height / 2;
+                    const distance = Math.abs(sectionCenter - viewportCenter);
+
+                    if (distance < bestDistance) {
+                        bestDistance = distance;
+                        bestSectionId = section.id;
+                    }
+                });
+
+                setActiveNavSection(bestSectionId);
+            }
+
+            window.addEventListener('scroll', updateActiveSection);
+            window.addEventListener('resize', updateActiveSection);
+            window.addEventListener('load', updateActiveSection);
+            updateActiveSection();
+
+            // ========== CONTACT FORM + INLINE POPUP ==========
+            const contactForm = document.getElementById('contactFormDirect');
+            const inlinePopup = document.getElementById('inlinePlatformPopup');
+            const whatsappInline = document.getElementById('whatsappChoiceInline');
+            const emailInline = document.getElementById('emailChoiceInline');
+            const closeInline = document.getElementById('closeInlinePopup');
+            let lastContactData = null;
+
+            function showInlinePopup(data) {
+                if (!inlinePopup) return;
+                lastContactData = data;
+                inlinePopup.style.display = 'block';
+                inlinePopup.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            function hideInlinePopup() {
+                if (inlinePopup) inlinePopup.style.display = 'none';
+                lastContactData = null;
+            }
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById('contactName').value.trim();
+                    const email = document.getElementById('contactEmail').value.trim();
+                    const phone = document.getElementById('contactPhone').value.trim();
+                    const message = document.getElementById('contactMessage').value.trim();
+
+                    if (!name || !email) {
+                        alert("Please fill in your name and email.");
+                        return;
+                    }
+                    const inquiry = { name, email, phone, message };
+                    lastContactData = inquiry;
+                    contactForm.reset();
+                    showInlinePopup(inquiry);
+                });
+            }
+
+            function buildWhatsAppMessage(data) {
+                const timestamp = new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' });
+                const phoneText = data.phone ? data.phone : "Not provided";
+                let messageText = data.message ? data.message : "No specific message provided";
+                
+                // Convert all line breaks to WhatsApp format (%0A)
+                messageText = messageText.replace(/\n/g, '%0A');
+                
+                // Build the complete message line by line
+                let message = '';
+                message += `SWIFT MASTER ENERGY – NEW LEAD%0A`;
+                message += `%0A`;
+                message += `Date: ${timestamp}%0A`;
+                message += `%0A`;
+                message += `CUSTOMER DETAILS%0A`;
+                message += `• Name: ${data.name}%0A`;
+                message += `• Email: ${data.email}%0A`;
+                message += `• Phone: ${phoneText}%0A`;
+                message += `%0A`;
+                message += `INQUIRY MESSAGE:%0A`;
+                message += `${messageText}%0A`;
+                message += `%0A`;
+                message += `ACTION REQUIRED:%0A`;
+                message += `Customer requests pricing and technical details for solar solutions. Please follow up promptly.%0A`;
+                message += `%0A`;
+                message += `Reply via WhatsApp to continue the conversation.%0A`;
+                message += `%0A`;
+                message += `Generated from swiftmasterenergy.com`;
+                
+                return message;
+            }
+
+            function buildEmailBody(data) {
+                const timestamp = new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' });
+                const phoneText = data.phone ? data.phone : "Not provided";
+                let messageText = data.message ? data.message : "No specific message provided";
+                
+                // Build the complete email line by line
+                let body = '';
+                body += `SWIFT MASTER ENERGY – NEW LEAD INQUIRY\n`;
+                body += `\n`;
+                body += `──────────────────────────\n`;
+                body += `Date: ${timestamp}\n`;
+                body += `──────────────────────────\n`;
+                body += `\n`;
+                body += `CUSTOMER DETAILS:\n`;
+                body += `• Name: ${data.name}\n`;
+                body += `• Email: ${data.email}\n`;
+                body += `• Phone: ${phoneText}\n`;
+                body += `\n`;
+                body += `MESSAGE:\n`;
+                body += `${messageText}\n`;
+                body += `\n`;
+                body += `──────────────────────────\n`;
+                body += `ACTION REQUIRED:\n`;
+                body += `The customer is requesting pricing and technical specifications for solar energy systems. Please respond as soon as possible.\n`;
+                body += `──────────────────────────\n`;
+                body += `\n`;
+                body += `This message was auto-generated from swiftmasterenergy.com`;
+                
+                return body;
+            }
+
+            if (whatsappInline) {
+                whatsappInline.addEventListener('click', () => {
+                    if (lastContactData) {
+                        const waMsg = buildWhatsAppMessage(lastContactData);
+                        window.open(`https://wa.me/2347069943790?text=${waMsg}`, '_blank');
+                    } else {
+                        window.open(`https://wa.me/2347069943790?text=I'm%20interested%20in%20solar%20solutions`, '_blank');
+                    }
+                    hideInlinePopup();
+                });
+            }
+
+            if (emailInline) {
+                emailInline.addEventListener('click', async () => {
+                    if (lastContactData) {
+                        const subject = `New Solar Lead from ${lastContactData.name}`;
+                        const body = buildEmailBody(lastContactData);
+                        const mailtoLink = `mailto:info@bestswiftservices.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                        
+                        // Try method 1: Open mail client
+                        const mailWindow = window.open(mailtoLink, '_blank');
+                        
+                        // Method 2: If that fails, try copy to clipboard
+                        if (!mailWindow || mailWindow.closed || typeof mailWindow.closed === 'undefined') {
+                            // Copy email content to clipboard
+                            const emailContent = `To: info@bestswiftservices.com\nSubject: ${subject}\n\n${body}`;
+                            
+                            try {
+                                await navigator.clipboard.writeText(emailContent);
+                                const userResponse = confirm(`Email content copied to clipboard!\n\nClick OK to open your email app, or Cancel to manually send later.\n\nRecipient: softedgetech06@gmail.com\nSubject: ${subject}\n\nWould you like to open your email app now?`);
+                                
+                                if (userResponse) {
+                                    // Try to open mail app again
+                                    window.open(mailtoLink, '_blank');
+                                }
+                            } catch (err) {
+                                // Final fallback: show alert with email details
+                                alert(`Please send an email to:\n\nsoftedgetech06@gmail.com\n\nSubject: ${subject}\n\n${body}\n\nYou can copy this information manually.`);
+                            }
+                        }
+                    } else {
+                        window.open(`mailto:softedgetech06@gmail.com?subject=Solar%20Inquiry`, '_blank');
+                    }
+                    hideInlinePopup();
+                });
+            }
+
+            if (closeInline) closeInline.addEventListener('click', hideInlinePopup);
+
+            // ========== HANDLE "SEND REQUEST" BUTTONS (MATRICES) ==========
+            document.querySelectorAll('.request-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Extract detailed product information from the table row
+                    let productName = '';
+                    let productRating = '';
+                    let productSpecs = '';
+                    let productDetails = '';
+                    
+                    const row = btn.closest('tr');
+                    if (row) {
+                        // Get model name
+                        const modelCell = row.querySelector('.model-tag');
+                        if (modelCell) {
+                            productName = modelCell.innerText.trim();
+                        }
+                        
+                        // Get rating (kWh)
+                        const ratingCell = row.querySelector('.spec-badge');
+                        if (ratingCell) {
+                            productRating = ratingCell.innerText.trim();
+                        }
+                        
+                        // Get key specs from the third column
+                        const specsCell = row.querySelector('td:nth-child(3)');
+                        if (specsCell) {
+                            productSpecs = specsCell.innerText.trim();
+                        }
+                    }
+                    
+                    // Fallback if product name not found
+                    if (!productName) {
+                        productName = btn.getAttribute('data-product') || 'Solar energy system';
+                    }
+                    
+                    // Build detailed message
+                    let detailedMessage = '';
+                    if (productName && productRating) {
+                        detailedMessage = `PRODUCT INQUIRY DETAILS:\n\n`;
+                        detailedMessage += `Model: ${productName}\n`;
+                        detailedMessage += `Rating: ${productRating}\n`;
+                        if (productSpecs) {
+                            detailedMessage += `Specifications: ${productSpecs}\n`;
+                        }
+                        detailedMessage += `\nWhat I need:\n`;
+                        detailedMessage += `• Current price quotation (wholesale/retail)\n`;
+                        detailedMessage += `• Technical datasheet and installation guide\n`;
+                        detailedMessage += `• Warranty information\n`;
+                        detailedMessage += `• Delivery timeline and shipping cost\n`;
+                        detailedMessage += `• Payment terms and available discounts\n\n`;
+                        detailedMessage += `Please provide a detailed quotation for this product as soon as possible.`;
+                    } else {
+                        detailedMessage = `I would like a quote for: ${productName}. Please send me the price and technical specifications.`;
+                    }
+                    
+                    const contactSection = document.getElementById('contact-modern');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        const messageField = document.getElementById('contactMessage');
+                        if (messageField) {
+                            // Set the detailed message
+                            messageField.value = detailedMessage;
+                            
+                            // Store original styles
+                            const originalBg = messageField.style.backgroundColor;
+                            const originalColor = messageField.style.color;
+                            
+                            // Apply highlight without losing text readability
+                            messageField.style.transition = 'all 0.3s ease';
+                            messageField.style.backgroundColor = 'rgba(255,204,0,0.15)';
+                            messageField.style.borderColor = '#FFCC00';
+                            messageField.style.color = '#FFFFFF';
+                            
+                            // Auto-resize textarea to show more content
+                            messageField.style.height = 'auto';
+                            messageField.style.height = messageField.scrollHeight + 'px';
+                            
+                            // Remove highlight after 2.5 seconds
+                            setTimeout(() => {
+                                messageField.style.backgroundColor = '';
+                                messageField.style.borderColor = '';
+                                messageField.style.color = '';
+                                messageField.style.transition = '';
+                            }, 2500);
+                        }
+                        
+                        // Highlight required fields with yellow border only (not background)
+                        const nameField = document.getElementById('contactName');
+                        const emailField = document.getElementById('contactEmail');
+                        const phoneField = document.getElementById('contactPhone');
+                        
+                        const highlightField = (field) => {
+                            if (field) {
+                                field.style.transition = 'all 0.3s ease';
+                                field.style.borderColor = '#FFCC00';
+                                field.style.boxShadow = '0 0 0 2px rgba(255,204,0,0.3)';
+                                field.style.backgroundColor = 'rgba(255,204,0,0.05)';
+                                setTimeout(() => {
+                                    field.style.borderColor = '';
+                                    field.style.boxShadow = '';
+                                    field.style.backgroundColor = '';
+                                    field.style.transition = '';
+                                }, 2500);
+                            }
+                        };
+                        highlightField(nameField);
+                        highlightField(emailField);
+                        highlightField(phoneField);
+                        
+                        // Focus on name field
+                        if (nameField) nameField.focus();
+                    }
+                });
+            });
+
+
+                      // ========== HANDLE "REQUEST PRICE" BUTTONS (PRICING SECTION) ==========
+            const priceButtons = document.querySelectorAll('.request-price-btn, .pricing-card .cta-btn');
+            console.log('Found pricing buttons:', priceButtons.length);
+            
+            function pricingClickHandler(e) {
+                e.preventDefault();
+                
+                // Extract pricing information from the clicked button's parent card
+                let systemType = '';
+                let systemSize = '';
+                let features = [];
+                
+                const card = e.currentTarget.closest('.pricing-card');
+                if (card) {
+                    // Get system name/title
+                    const titleElement = card.querySelector('.pricing-header h4, h4');
+                    if (titleElement) {
+                        systemType = titleElement.innerText.trim();
+                    }
+                    
+                    // Get system size/description
+                    const sizeElement = card.querySelector('.price-point');
+                    if (sizeElement) {
+                        systemSize = sizeElement.innerText.trim();
+                    }
+                    
+                    // Get key features
+                    const featureItems = card.querySelectorAll('.pricing-features li, ul li');
+                    featureItems.forEach(item => {
+                        const featureText = item.innerText.trim().replace('✓', '').trim();
+                        if (featureText && featureText.length > 0) {
+                            features.push(featureText);
+                        }
+                    });
+                }
+                
+                // Build detailed pricing inquiry message with proper line breaks
+                let detailedMessage = `PRICE QUOTE REQUEST\n`;
+                detailedMessage += `\n`;
+                detailedMessage += `SYSTEM: ${systemType || 'Solar Energy System'}\n`;
+                if (systemSize) {
+                    detailedMessage += `CONFIGURATION: ${systemSize}\n`;
+                }
+                
+                if (features.length > 0) {
+                    detailedMessage += `\n`;
+                    detailedMessage += `KEY FEATURES INCLUDED:\n`;
+                    features.slice(0, 5).forEach(feature => {
+                        detailedMessage += `• ${feature}\n`;
+                    });
+                }
+                
+                detailedMessage += `\n`;
+                detailedMessage += `WHAT I NEED:\n`;
+                detailedMessage += `• Complete price breakdown (equipment + installation + shipping)\n`;
+                detailedMessage += `• Available payment plans and financing options\n`;
+                detailedMessage += `• Delivery timeline to my location\n`;
+                detailedMessage += `• Warranty coverage and after-sales support\n`;
+                detailedMessage += `• Bulk discount for multiple systems (if applicable)\n`;
+                detailedMessage += `\n`;
+                detailedMessage += `Please send me a detailed quotation for this solar solution as soon as possible. I am ready to proceed with the right offer.`;
+
+                const contactSection = document.getElementById('contact-modern');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Pre-fill the message field with detailed inquiry
+                    const messageField = document.getElementById('contactMessage');
+                    if (messageField) {
+                        messageField.value = detailedMessage;
+                        
+                        // Apply highlight
+                        messageField.style.transition = 'all 0.3s ease';
+                        messageField.style.backgroundColor = 'rgba(255,204,0,0.15)';
+                        messageField.style.borderColor = '#FFCC00';
+                        messageField.style.color = '#FFFFFF';
+                        
+                        // Auto-resize textarea
+                        messageField.style.height = 'auto';
+                        messageField.style.height = messageField.scrollHeight + 'px';
+                        
+                        // Remove highlight after 2.5 seconds
+                        setTimeout(() => {
+                            messageField.style.backgroundColor = '';
+                            messageField.style.borderColor = '';
+                            messageField.style.color = '';
+                            messageField.style.transition = '';
+                        }, 2500);
+                    }
+                    
+                    // Highlight required fields
+                    const nameField = document.getElementById('contactName');
+                    const emailField = document.getElementById('contactEmail');
+                    const phoneField = document.getElementById('contactPhone');
+                    
+                    const highlightField = (field) => {
+                        if (field) {
+                            field.style.transition = 'all 0.3s ease';
+                            field.style.borderColor = '#FFCC00';
+                            field.style.boxShadow = '0 0 0 2px rgba(255,204,0,0.3)';
+                            field.style.backgroundColor = 'rgba(255,204,0,0.05)';
+                            setTimeout(() => {
+                                field.style.borderColor = '';
+                                field.style.boxShadow = '';
+                                field.style.backgroundColor = '';
+                                field.style.transition = '';
+                            }, 2500);
+                        }
+                    };
+                    highlightField(nameField);
+                    highlightField(emailField);
+                    highlightField(phoneField);
+                    
+                    // Focus on name field
+                    if (nameField) nameField.focus();
+                } else {
+                    console.error('Contact section not found');
+                }
+            }
+            
+            priceButtons.forEach(btn => {
+                btn.removeEventListener('click', pricingClickHandler);
+                btn.addEventListener('click', pricingClickHandler);
+            });
+            
+            // Also target buttons that might be added dynamically
+            const pricingObserver = new MutationObserver(() => {
+                const newButtons = document.querySelectorAll('.request-price-btn, .pricing-card .cta-btn');
+                newButtons.forEach(btn => {
+                    btn.removeEventListener('click', pricingClickHandler);
+                    btn.addEventListener('click', pricingClickHandler);
+                });
+            });
+            pricingObserver.observe(document.body, { childList: true, subtree: true });
+        });
+    </script>
+</body>
+</html>
