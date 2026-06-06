@@ -186,13 +186,17 @@ function sendEmailViaSMTP($host, $port, $username, $password, $encryption, $from
         fputs($socket, "DATA\r\n");
         fgets($socket, 512);
 
-        // Build headers
+        // Build headers with better delivery rates
         $headers = "From: " . $fromName . " <" . $from . ">\r\n";
         $headers .= "Reply-To: " . $from . "\r\n";
+        $headers .= "Return-Path: " . $from . "\r\n";
         $headers .= "To: " . $to . "\r\n";
         $headers .= "Subject: " . $subject . "\r\n";
+        $headers .= "X-Mailer: Swift Master Energy Contact Form\r\n";
+        $headers .= "X-Priority: 3\r\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-        $headers .= "Content-Transfer-Encoding: 7bit\r\n";
+        $headers .= "Content-Transfer-Encoding: 8bit\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "\r\n";
 
         // Send complete email
