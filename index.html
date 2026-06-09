@@ -1593,10 +1593,13 @@ position: absolute;
 
                 /* Preserve line breaks in textarea */
         #contactMessage {
-            white-space: pre-wrap !important;
-            word-wrap: break-word !important;
-            line-height: 1.6 !important;
-            font-family: monospace;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    line-height: 1.6 !important;
+    font-family: monospace;
+    resize: vertical;
+    min-height: 80px;
+    transition: height 0.2s ease;
         }
                 /* ========== MOBILE HERO SECTION ADJUSTMENT ========== */
         @media (max-width: 768px) {
@@ -1741,6 +1744,8 @@ position: absolute;
                 box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             }
         }
+
+        
     </style>
 </head>
 <body>
@@ -2137,141 +2142,194 @@ position: absolute;
         </div>
     </section>
 
-         <!-- ========== TESTIMONIALS SECTION (SWIPEABLE ON MOBILE) ========== -->
-    <section id="testimonials" class="reveal-node" style="padding: 5rem 5%; background: linear-gradient(145deg, #0B0F17, #0F1422); border-top: 1px solid rgba(255,204,0,0.1); border-bottom: 1px solid rgba(255,204,0,0.1); overflow-x: hidden;">
-        <div style="max-width: 1300px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <span class="section-tag">Testimonials</span>
-                <h2 class="section-title">What Our <span>Customers Say</span></h2>
-                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Trusted by hundreds of homeowners and businesses across Nigeria</p>
-            </div>
-            
-            <!-- Desktop Grid View (hidden on mobile) -->
-            <div class="testimonials-desktop" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-                <!-- Testimonial 1 -->
-                <div style="background: var(--surface-card); border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.03); transition: all 0.3s ease;">
-                    <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 2rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
-                    <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">"Swift Master Energy transformed our home. The installation was professional, and our electricity bill has reduced by over 60%. The battery backup works flawlessly during outages."</p>
-                    <div>
-                        <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Oluwaseun Adebayo</h4>
-                        <div style="display: flex; gap: 3px; margin-bottom: 0.5rem;">
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                        </div>
-                        <p style="color: var(--text-muted); font-size: 0.8rem;">Homeowner, Lagos</p>
-                    </div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div style="background: var(--surface-card); border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.03); transition: all 0.3s ease;">
-                    <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 2rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
-                    <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">"Excellent customer service from start to finish. The team guided us through the entire process and recommended the perfect system for our business. Highly recommended!"</p>
-                    <div>
-                        <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Chioma Eze</h4>
-                        <div style="display: flex; gap: 3px; margin-bottom: 0.5rem;">
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                        </div>
-                        <p style="color: var(--text-muted); font-size: 0.8rem;">Business Owner, Abuja</p>
-                    </div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div style="background: var(--surface-card); border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.03); transition: all 0.3s ease;">
-                    <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 2rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
-                    <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">"The solar batteries are top quality. We've had zero issues since installation over a year ago. The team provides excellent after-sales support."</p>
-                    <div>
-                        <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Michael Okonkwo</h4>
-                        <div style="display: flex; gap: 3px; margin-bottom: 0.5rem;">
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
-                        </div>
-                        <p style="color: var(--text-muted); font-size: 0.8rem;">Engineer, Port Harcourt</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Mobile Carousel View (hidden on desktop) -->
-            <div class="testimonials-mobile" style="position: relative; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; display: none; gap: 1rem; padding-bottom: 1rem;">
-                <div style="display: flex; gap: 1.5rem; padding: 0.5rem 0;">
-                    <!-- Testimonial 1 -->
-                    <div style="flex: 0 0 85%; scroll-snap-align: start; background: var(--surface-card); border-radius: 24px; padding: 1.8rem; border: 1px solid rgba(255,255,255,0.03);">
-                        <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 1.8rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
-                        <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.2rem; font-size: 0.9rem;">"Swift Master Energy transformed our home. The installation was professional, and our electricity bill has reduced by over 60%."</p>
-                        <div>
-                            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Oluwaseun Adebayo</h4>
-                            <div style="display: flex; gap: 3px; margin-bottom: 0.5rem;">
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                            </div>
-                            <p style="color: var(--text-muted); font-size: 0.75rem;">Homeowner, Lagos</p>
-                        </div>
-                    </div>
-                    <!-- Testimonial 2 -->
-                    <div style="flex: 0 0 85%; scroll-snap-align: start; background: var(--surface-card); border-radius: 24px; padding: 1.8rem; border: 1px solid rgba(255,255,255,0.03);">
-                        <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 1.8rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
-                        <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.2rem; font-size: 0.9rem;">"Excellent customer service from start to finish. The team guided us through the entire process and recommended the perfect system."</p>
-                        <div>
-                            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Chioma Eze</h4>
-                            <div style="display: flex; gap: 3px; margin-bottom: 0.5rem;">
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                            </div>
-                            <p style="color: var(--text-muted); font-size: 0.75rem;">Business Owner, Abuja</p>
-                        </div>
-                    </div>
-                    <!-- Testimonial 3 -->
-                    <div style="flex: 0 0 85%; scroll-snap-align: start; background: var(--surface-card); border-radius: 24px; padding: 1.8rem; border: 1px solid rgba(255,255,255,0.03);">
-                        <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 1.8rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
-                        <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.2rem; font-size: 0.9rem;">"The solar batteries are top quality. We've had zero issues since installation over a year ago. Excellent after-sales support."</p>
-                        <div>
-                            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Michael Okonkwo</h4>
-                            <div style="display: flex; gap: 3px; margin-bottom: 0.5rem;">
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
-                            </div>
-                            <p style="color: var(--text-muted); font-size: 0.75rem;">Engineer, Port Harcourt</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Scroll Hint for Mobile -->
-            <div class="scroll-hint" style="text-align: center; margin-top: 1.5rem; display: none;">
-                <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,204,0,0.1); padding: 0.5rem 1rem; border-radius: 40px;">
-                    <i class="fa-solid fa-arrow-left" style="color: var(--primary); font-size: 0.7rem;"></i>
-                    <span style="color: var(--text-muted); font-size: 0.7rem;">Swipe to see more reviews</span>
-                    <i class="fa-solid fa-arrow-right" style="color: var(--primary); font-size: 0.7rem;"></i>
-                </div>
-            </div>
+<!-- ========== TESTIMONIALS SECTION (SWIPEABLE ON MOBILE) ========== -->
+<section id="testimonials" class="reveal-node" style="padding: 5rem 5%; background: linear-gradient(145deg, #0B0F17, #0F1422); border-top: 1px solid rgba(255,204,0,0.1); border-bottom: 1px solid rgba(255,204,0,0.1); overflow-x: hidden;">
+    <div style="max-width: 1300px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <span class="section-tag">Testimonials</span>
+            <h2 class="section-title">What Our <span>Customers Say</span></h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Trusted by hundreds of homeowners and businesses across the Globe</p>
+        </div>
 
-            <!-- Trust Badge -->
-            <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05);">
-                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                    <div><span style="color: var(--primary); font-weight: 800; font-size: 1.2rem;">500+</span><p style="color: var(--text-muted); font-size: 0.8rem;">Happy Customers</p></div>
-                    <div><span style="color: var(--primary); font-weight: 800; font-size: 1.2rem;">98%</span><p style="color: var(--text-muted); font-size: 0.8rem;">Satisfaction Rate</p></div>
-                    <div><span style="color: var(--primary); font-weight: 800; font-size: 1.2rem;">4.9</span><p style="color: var(--text-muted); font-size: 0.8rem;">Average Rating</p></div>
+        <!-- Desktop Grid View (3 columns - will show 3, then wrap to next row) -->
+        <div class="testimonials-desktop" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            <!-- Testimonial 1 -->
+            <div style="background: var(--surface-card); border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.03); transition: all 0.3s ease;">
+                <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 2rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">"Swift Master Energy transformed our home completely. The installation team was professional, and our electricity bill has dropped by over 65%. The battery backup works flawlessly during power outages. Highly recommended!"</p>
+                <div>
+                    <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Ahmet Yılmaz</h4>
+                    <div style="display: flex; gap: 3px;">
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div style="background: var(--surface-card); border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.03); transition: all 0.3s ease;">
+                <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 2rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">"Excellent customer service from start to finish. The team guided us through the entire process and recommended the perfect 10kWh system for our business. Our energy costs have been cut in half!"</p>
+                <div>
+                    <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Zeynep Kaya</h4>
+                    <div style="display: flex; gap: 3px;">
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div style="background: var(--surface-card); border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.03); transition: all 0.3s ease;">
+                <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 2rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">"The solar batteries are top quality. We've had zero issues since installation over a year ago. The team provides excellent after-sales support and regular maintenance checks."</p>
+                <div>
+                    <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Mehmet Demir</h4>
+                    <div style="display: flex; gap: 3px;">
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 4 -->
+            <div style="background: var(--surface-card); border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.03); transition: all 0.3s ease;">
+                <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 2rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">"Best investment we ever made for our factory. The 100kW system paid for itself within 18 months. Installation was quick and the team was very knowledgeable about commercial setups."</p>
+                <div>
+                    <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Mustafa Aydın</h4>
+                    <div style="display: flex; gap: 3px;">
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 5 -->
+            <div style="background: var(--surface-card); border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.03); transition: all 0.3s ease;">
+                <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 2rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">"Swift Master Energy provided end-to-end support from design to installation. Their technical team is responsive and professional. Our hotel now runs on 70% solar power during summer months."</p>
+                <div>
+                    <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Elif Şahin</h4>
+                    <div style="display: flex; gap: 3px;">
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
+        <!-- Mobile Carousel View (horizontal swipe) - All 5 testimonials -->
+        <div class="testimonials-mobile" style="position: relative; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; gap: 1rem; padding-bottom: 1rem; display: none;">
+            <div style="display: flex; gap: 1.5rem; padding: 0.5rem 0;">
+                <!-- Mobile Testimonial 1 -->
+                <div style="flex: 0 0 85%; scroll-snap-align: start; background: var(--surface-card); border-radius: 24px; padding: 1.8rem; border: 1px solid rgba(255,255,255,0.03);">
+                    <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 1.8rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                    <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.2rem; font-size: 0.9rem;">"Swift Master Energy transformed our home completely. Bill dropped by over 65%! Battery backup works flawlessly during outages."</p>
+                    <div>
+                        <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Ahmet Yılmaz</h4>
+                        <div style="display: flex; gap: 3px;">
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Testimonial 2 -->
+                <div style="flex: 0 0 85%; scroll-snap-align: start; background: var(--surface-card); border-radius: 24px; padding: 1.8rem; border: 1px solid rgba(255,255,255,0.03);">
+                    <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 1.8rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                    <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.2rem; font-size: 0.9rem;">"Excellent service from start to finish. The team guided us perfectly and recommended the ideal system for our business."</p>
+                    <div>
+                        <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Zeynep Kaya</h4>
+                        <div style="display: flex; gap: 3px;">
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Testimonial 3 -->
+                <div style="flex: 0 0 85%; scroll-snap-align: start; background: var(--surface-card); border-radius: 24px; padding: 1.8rem; border: 1px solid rgba(255,255,255,0.03);">
+                    <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 1.8rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                    <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.2rem; font-size: 0.9rem;">"Top quality batteries, zero issues after one year. After-sales support team is exceptional and always responsive."</p>
+                    <div>
+                        <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Mehmet Demir</h4>
+                        <div style="display: flex; gap: 3px;">
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Testimonial 4 -->
+                <div style="flex: 0 0 85%; scroll-snap-align: start; background: var(--surface-card); border-radius: 24px; padding: 1.8rem; border: 1px solid rgba(255,255,255,0.03);">
+                    <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 1.8rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                    <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.2rem; font-size: 0.9rem;">"Best investment for our factory. 100kW system paid for itself within 18 months. Very knowledgeable commercial team."</p>
+                    <div>
+                        <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Mustafa Aydın</h4>
+                        <div style="display: flex; gap: 3px;">
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Testimonial 5 -->
+                <div style="flex: 0 0 85%; scroll-snap-align: start; background: var(--surface-card); border-radius: 24px; padding: 1.8rem; border: 1px solid rgba(255,255,255,0.03);">
+                    <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 1.8rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                    <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.2rem; font-size: 0.9rem;">"End-to-end support from design to installation. Our hotel now runs on 70% solar power during summer. Highly professional!"</p>
+                    <div>
+                        <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Elif Şahin</h4>
+                        <div style="display: flex; gap: 3px;">
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Hint for Mobile -->
+        <div class="scroll-hint" style="text-align: center; margin-top: 1.5rem; display: none;">
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,204,0,0.1); padding: 0.5rem 1rem; border-radius: 40px;">
+                <i class="fa-solid fa-arrow-left" style="color: var(--primary); font-size: 0.7rem;"></i>
+                <span style="color: var(--text-muted); font-size: 0.7rem;">Swipe to see more reviews</span>
+                <i class="fa-solid fa-arrow-right" style="color: var(--primary); font-size: 0.7rem;"></i>
+            </div>
+        </div>
+
+        <!-- Trust Badge -->
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05);">
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div><span style="color: var(--primary); font-weight: 800; font-size: 1.2rem;">1000+</span><p style="color: var(--text-muted); font-size: 0.8rem;">Happy Customers</p></div>
+                <div><span style="color: var(--primary); font-weight: 800; font-size: 1.2rem;">98%</span><p style="color: var(--text-muted); font-size: 0.8rem;">Satisfaction Rate</p></div>
+                <div><span style="color: var(--primary); font-weight: 800; font-size: 1.2rem;">4.9</span><p style="color: var(--text-muted); font-size: 0.8rem;">Average Rating</p></div>
+            </div>
+        </div>
+    </div>
+</section>
             <section id="pricing" class="reveal-node">
         <div style="text-align: center;">
             <span class="section-tag">Pricing Framework</span>
@@ -2337,9 +2395,21 @@ position: absolute;
                         <div style="width: 50px; height: 50px; background: rgba(255,204,0,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-envelope" style="color: var(--primary); font-size: 1.3rem;"></i></div>
                         <div><h4 style="font-weight: 700;">Email</h4><p style="color: var(--text-muted);">info@bestswiftservices.com</p></div>
                     </div>
-                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem; align-items: center;">
-    <div style="width: 50px; height: 50px; background: rgba(255,204,0,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-phone" style="color: var(--primary); font-size: 1.3rem;"></i></div>
-    <div><h4 style="font-weight: 700;">Call Us</h4><p style="color: var(--text-muted);"><a href="tel:+2348009876543" style="color: var(--text-muted); text-decoration: none;">+234 800 987 6543</a></p></div>
+<!-- Office Address (Detailed) -->
+<div style="display: flex; gap: 1rem; margin-bottom: 2rem; align-items: flex-start;">
+    <div style="width: 50px; height: 50px; background: rgba(255,204,0,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i class="fa-solid fa-location-dot" style="color: var(--primary); font-size: 1.3rem;"></i></div>
+    <div>
+        <h4 style="font-weight: 700;">Istanbul World Trade Center</h4>
+        <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">
+            Yeşilköy IDTM Otopark, No:10 D:A2 Blok<br>
+            Bakırköy/İstanbul, 34149, Türkiye
+        </p>
+    </div>
+</div>
+
+<div style="display: flex; gap: 1rem; margin-bottom: 2rem; align-items: center;">
+    <div style="width: 50px; height: 50px; background: rgba(255,204,0,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-calendar-alt" style="color: var(--primary); font-size: 1.3rem;"></i></div>
+    <div><h4 style="font-weight: 700;">Hours</h4><p style="color: var(--text-muted);">Mon–Fri: 8am–6pm<br>Sat: 9am–4pm</p></div>
 </div>
                     <div style="display: flex; gap: 1rem; align-items: center;">
                         <div style="width: 50px; height: 50px; background: rgba(255,204,0,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-clock" style="color: var(--primary); font-size: 1.3rem;"></i></div>
@@ -2437,7 +2507,7 @@ position: absolute;
                 </div>
             </div>
             <div style="text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05);">
-                <p style="color: #4B5563; font-size: 0.75rem;">© 2025 Swift Master Energy — Empowering a sustainable tomorrow.</p>
+                <p style="color: #4B5563; font-size: 0.75rem;">© 2026 Swift Master Energy — Empowering a sustainable tomorrow.</p>
             </div>
         </div>
     </footer>
@@ -2667,6 +2737,35 @@ position: absolute;
                     msg.style.opacity = '1';
                     setTimeout(() => { msg.style.opacity = '0'; setTimeout(() => msg.remove(), 500); }, 800);
                 });
+
+                // ========== TEXTAREA AUTO-RESIZE & RESET WHEN EMPTY ==========
+const messageTextarea = document.getElementById('contactMessage');
+if (messageTextarea) {
+    // Function to reset height if empty
+    function resetTextareaHeight() {
+        if (messageTextarea.value.trim() === '') {
+            messageTextarea.style.height = 'auto';
+            messageTextarea.style.height = '80px';
+        }
+    }
+    
+    // Auto-expand when typing, shrink when deleting
+    messageTextarea.addEventListener('input', function() {
+        if (this.value.trim() === '') {
+            this.style.height = 'auto';
+            this.style.height = '80px';
+        } else {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        }
+    });
+    
+    // Reset when focus leaves
+    messageTextarea.addEventListener('blur', resetTextareaHeight);
+    
+    // Initial check
+    resetTextareaHeight();
+}
                 
                 const videoObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
@@ -2743,44 +2842,399 @@ position: absolute;
             window.addEventListener('load', updateActiveSection);
             updateActiveSection();
 
-            // ========== CONTACT FORM + INLINE POPUP ==========
-            const contactForm = document.getElementById('contactFormDirect');
-            const inlinePopup = document.getElementById('inlinePlatformPopup');
-            const whatsappInline = document.getElementById('whatsappChoiceInline');
-            const emailInline = document.getElementById('emailChoiceInline');
-            const closeInline = document.getElementById('closeInlinePopup');
-            let lastContactData = null;
+// ========== CONTACT FORM + INLINE POPUP ==========
+const contactForm = document.getElementById('contactFormDirect');
+const inlinePopup = document.getElementById('inlinePlatformPopup');
+const whatsappInline = document.getElementById('whatsappChoiceInline');
+const emailInline = document.getElementById('emailChoiceInline');
+const closeInline = document.getElementById('closeInlinePopup');
+let lastContactData = null;
+let modalInstance = null; // Store modal reference
 
-            function showInlinePopup(data) {
-                if (!inlinePopup) return;
-                lastContactData = data;
-                inlinePopup.style.display = 'block';
-                inlinePopup.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+// Create the custom modal element (add this to the page)
+function createCustomModal() {
+    // Return existing modal if already created
+    if (modalInstance) return modalInstance;
+    
+    const modalHTML = `
+        <div id="customModal" class="custom-modal">
+            <div class="modal-content">
+                <div class="modal-icon" id="modalIcon">
+                    <i class="fa-regular fa-circle-check"></i>
+                </div>
+                <h3 id="modalTitle">Success!</h3>
+                <p id="modalMessage">Your message has been sent successfully. We'll get back to you shortly.</p>
+                <button class="modal-btn" id="modalCloseBtn">OK, Got it</button>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    modalInstance = document.getElementById('customModal');
+    const closeBtn = document.getElementById('modalCloseBtn');
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            if (modalInstance) modalInstance.classList.remove('active');
+        });
+    }
+    
+    if (modalInstance) {
+        modalInstance.addEventListener('click', (e) => {
+            if (e.target === modalInstance) {
+                modalInstance.classList.remove('active');
             }
+        });
+    }
+    
+    return modalInstance;
+}
 
-            function hideInlinePopup() {
-                if (inlinePopup) inlinePopup.style.display = 'none';
-                lastContactData = null;
+function showModal(type, title, message) {
+    const modal = createCustomModal();
+    
+    // Make sure modal exists
+    if (!modal) {
+        console.error('Modal not found');
+        // Fallback to alert if modal fails
+        alert(`${title}: ${message}`);
+        return;
+    }
+    
+    const modalIcon = document.getElementById('modalIcon');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalMessage = document.getElementById('modalMessage');
+    
+    // Check if elements exist
+    if (!modalIcon || !modalTitle || !modalMessage) {
+        console.error('Modal elements not found');
+        alert(`${title}: ${message}`);
+        return;
+    }
+    
+    // Reset icon classes
+    modalIcon.className = 'modal-icon';
+    
+    if (type === 'success') {
+        modalIcon.classList.add('success');
+        modalIcon.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
+        modalTitle.textContent = title || 'Success!';
+    } else if (type === 'error') {
+        modalIcon.classList.add('error');
+        modalIcon.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>';
+        modalTitle.textContent = title || 'Error!';
+    } else if (type === 'warning') {
+        modalIcon.classList.add('warning');
+        modalIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+        modalTitle.textContent = title || 'Warning!';
+    }
+    
+    modalMessage.textContent = message;
+    modal.classList.add('active');
+}
+
+function showToast(type, title, message) {
+    // Remove existing toast if any
+    const existingToast = document.querySelector('.toast-notification');
+    if (existingToast) existingToast.remove();
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
+    
+    let iconClass = '';
+    let iconColor = '';
+    if (type === 'success') {
+        iconClass = 'fa-regular fa-circle-check';
+        iconColor = '#10b981';
+    } else if (type === 'error') {
+        iconClass = 'fa-solid fa-circle-exclamation';
+        iconColor = '#ef4444';
+    } else {
+        iconClass = 'fa-regular fa-bell';
+        iconColor = 'var(--primary)';
+    }
+    
+    toast.innerHTML = `
+        <div class="toast-icon" style="color: ${iconColor}"><i class="${iconClass}"></i></div>
+        <div class="toast-content">
+            <strong>${title}</strong>
+            <p>${message}</p>
+        </div>
+        <button class="toast-close"><i class="fa-solid fa-times"></i></button>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => toast.classList.add('show'), 10);
+    
+    const closeToast = toast.querySelector('.toast-close');
+    if (closeToast) {
+        closeToast.addEventListener('click', () => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 300);
+        });
+    }
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 5000);
+}
+
+function showInlinePopup(data) {
+    if (!inlinePopup) return;
+    lastContactData = data;
+    inlinePopup.style.display = 'block';
+    inlinePopup.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function hideInlinePopup() {
+    if (inlinePopup) inlinePopup.style.display = 'none';
+    lastContactData = null;
+}
+
+// Add the CSS for the modal if not already in the styles
+if (!document.querySelector('#modalStyles')) {
+    const modalStyle = document.createElement('style');
+    modalStyle.id = 'modalStyles';
+    modalStyle.textContent = `
+        .custom-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .custom-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: linear-gradient(145deg, var(--surface-card), #1A1F2E);
+            border-radius: 32px;
+            padding: 2rem;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid rgba(255, 204, 0, 0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            animation: modalPopIn 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+        
+        @keyframes modalPopIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 204, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem auto;
+            border: 2px solid rgba(255, 204, 0, 0.3);
+        }
+        
+        .modal-icon i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .modal-icon.success i {
+            color: #10b981;
+        }
+        .modal-icon.error i {
+            color: #ef4444;
+        }
+        .modal-icon.warning i {
+            color: #f59e0b;
+        }
+        
+        .modal-content h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        
+        .modal-content p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .modal-btn {
+            background: var(--primary);
+            color: var(--surface-dark);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 204, 0, 0.4);
+            background: #fff;
+        }
+        
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(145deg, var(--surface-card), #1A1F2E);
+            border-radius: 16px;
+            padding: 1rem 1.5rem;
+            min-width: 280px;
+            max-width: 400px;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .toast-notification.show {
+            transform: translateX(0);
+        }
+        
+        .toast-icon {
+            font-size: 1.3rem;
+        }
+        
+        .toast-content {
+            flex: 1;
+        }
+        
+        .toast-content p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        
+        .toast-content strong {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        .toast-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 4px;
+        }
+        
+        @media (max-width: 768px) {
+            .toast-notification {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+                min-width: auto;
             }
+        }
+    `;
+    document.head.appendChild(modalStyle);
+}
 
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const name = document.getElementById('contactName').value.trim();
-                    const email = document.getElementById('contactEmail').value.trim();
-                    const phone = document.getElementById('contactPhone').value.trim();
-                    const message = document.getElementById('contactMessage').value.trim();
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-                    if (!name || !email) {
-                        alert("Please fill in your name and email.");
-                        return;
-                    }
-                    const inquiry = { name, email, phone, message };
-                    lastContactData = inquiry;
-                    contactForm.reset();
-                    showInlinePopup(inquiry);
-                });
+        const name = document.getElementById('contactName').value.trim();
+        const email = document.getElementById('contactEmail').value.trim();
+        const phone = document.getElementById('contactPhone').value.trim();
+        const message = document.getElementById('contactMessage').value.trim();
+
+        if (!name || !email || !message) {
+            showModal('warning', 'Missing Information', 'Please fill in all required fields (Name, Email, and Message).');
+            return;
+        }
+
+        // Show loading state
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+        try {
+            // First, save the data for later use
+            const contactData = { name, email, phone, message };
+            
+            // Send to PHP backend
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('phone', phone);
+            formData.append('message', message);
+
+            const response = await fetch('send-email.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Success - show custom modal
+                showModal('success', 'Message Sent!', 'Your inquiry has been received. Our team will get back to you within 24 hours.');
+                contactForm.reset();
+                
+                // Show the inline popup for WhatsApp/Email follow-up
+                // showInlinePopup(contactData);
+                
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            } else {
+                // Error from server
+                showModal('error', 'Something went wrong', data.message || 'Failed to send inquiry. Please try again or contact us directly.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
             }
+        } catch (error) {
+            console.error('Error sending form:', error);
+            showModal('error', 'Network Error', 'Unable to connect to the server. Please check your internet connection and try again.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        }
+    });
+}
+
+            // Add CSS animation for loading spinner
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes spin {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
 
             function buildWhatsAppMessage(data) {
                 const timestamp = new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' });
@@ -2956,32 +3410,38 @@ position: absolute;
                         contactSection.scrollIntoView({ behavior: 'smooth' });
                         
                         const messageField = document.getElementById('contactMessage');
-                        if (messageField) {
-                            // Set the detailed message
-                            messageField.value = detailedMessage;
-                            
-                            // Store original styles
-                            const originalBg = messageField.style.backgroundColor;
-                            const originalColor = messageField.style.color;
-                            
-                            // Apply highlight without losing text readability
-                            messageField.style.transition = 'all 0.3s ease';
-                            messageField.style.backgroundColor = 'rgba(255,204,0,0.15)';
-                            messageField.style.borderColor = '#FFCC00';
-                            messageField.style.color = '#FFFFFF';
-                            
-                            // Auto-resize textarea to show more content
-                            messageField.style.height = 'auto';
-                            messageField.style.height = messageField.scrollHeight + 'px';
-                            
-                            // Remove highlight after 2.5 seconds
-                            setTimeout(() => {
-                                messageField.style.backgroundColor = '';
-                                messageField.style.borderColor = '';
-                                messageField.style.color = '';
-                                messageField.style.transition = '';
-                            }, 2500);
-                        }
+                            if (messageField) {
+                                // Set the detailed message
+                                messageField.value = detailedMessage;
+                                
+                                // Store original styles
+                                const originalBg = messageField.style.backgroundColor;
+                                const originalColor = messageField.style.color;
+                                
+                                // Apply highlight without losing text readability
+                                messageField.style.transition = 'all 0.3s ease';
+                                messageField.style.backgroundColor = 'rgba(255,204,0,0.15)';
+                                messageField.style.borderColor = '#FFCC00';
+                                messageField.style.color = '#FFFFFF';
+                                
+                                // Auto-resize textarea to show content
+                                messageField.style.height = 'auto';
+                                messageField.style.height = messageField.scrollHeight + 'px';
+                                
+                                // Remove highlight after 2.5 seconds AND reset height if cleared
+                                setTimeout(() => {
+                                    messageField.style.backgroundColor = '';
+                                    messageField.style.borderColor = '';
+                                    messageField.style.color = '';
+                                    messageField.style.transition = '';
+                                    
+                                    // If the field becomes empty, reset height
+                                    if (messageField.value.trim() === '') {
+                                        messageField.style.height = 'auto';
+                                        messageField.style.height = '80px';
+                                    }
+                                }, 2500);
+                            }
                         
                         // Highlight required fields with yellow border only (not background)
                         const nameField = document.getElementById('contactName');
@@ -3149,5 +3609,7 @@ position: absolute;
             pricingObserver.observe(document.body, { childList: true, subtree: true });
         });
     </script>
+
+    
 </body>
 </html>
